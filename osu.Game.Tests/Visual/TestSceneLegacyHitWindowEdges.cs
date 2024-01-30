@@ -9,14 +9,17 @@ using osu.Game.Beatmaps;
 using osu.Game.Replays;
 using osu.Game.Rulesets.Judgements;
 using osu.Game.Rulesets.Mania;
+using osu.Game.Rulesets.Mania.Mods;
 using osu.Game.Rulesets.Mania.Objects;
 using osu.Game.Rulesets.Mania.Replays;
 using osu.Game.Rulesets.Osu;
+using osu.Game.Rulesets.Osu.Mods;
 using osu.Game.Rulesets.Osu.Objects;
 using osu.Game.Rulesets.Osu.Replays;
 using osu.Game.Rulesets.Replays;
 using osu.Game.Rulesets.Scoring;
 using osu.Game.Rulesets.Taiko;
+using osu.Game.Rulesets.Taiko.Mods;
 using osu.Game.Rulesets.Taiko.Objects;
 using osu.Game.Rulesets.Taiko.Replays;
 using osu.Game.Scoring;
@@ -225,6 +228,7 @@ namespace osu.Game.Tests.Visual
                 });
 
                 var p = new ScoreAccessibleReplayPlayer(new Score { Replay = new Replay { Frames = generateOsuFrames(overallDifficulty) } });
+                SelectedMods.Value = new[] { new OsuModClassic() };
 
                 p.OnLoadComplete += _ =>
                 {
@@ -263,6 +267,7 @@ namespace osu.Game.Tests.Visual
                 });
 
                 var p = new ScoreAccessibleReplayPlayer(new Score { Replay = new Replay { Frames = generateTaikoFrames(overallDifficulty) } });
+                SelectedMods.Value = new[] { new TaikoModClassic() };
 
                 p.OnLoadComplete += _ =>
                 {
@@ -301,6 +306,7 @@ namespace osu.Game.Tests.Visual
                 });
 
                 var p = new ScoreAccessibleReplayPlayer(new Score { Replay = new Replay { Frames = generateManiaFrames(overallDifficulty) } });
+                SelectedMods.Value = new[] { new ManiaModClassic() };
 
                 p.OnLoadComplete += _ =>
                 {

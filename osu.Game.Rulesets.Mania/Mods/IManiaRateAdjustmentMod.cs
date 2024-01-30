@@ -25,8 +25,9 @@ namespace osu.Game.Rulesets.Mania.Mods
 
         void IApplicableToDifficulty.ApplyToDifficulty(BeatmapDifficulty difficulty)
         {
-            HitWindows = new ManiaHitWindows(SpeedChange.Value);
-            HitWindows.SetDifficulty(difficulty.OverallDifficulty);
+            HitWindows = new ManiaHitWindows();
+            HitWindows.SetSpeedRate(SpeedChange.Value);
+            HitWindows.SetDifficulty(difficulty.OverallDifficulty); // is this necessary? will it not be done somewhere else automatically?
         }
 
         void IApplicableToHitObject.ApplyToHitObject(HitObject hitObject)

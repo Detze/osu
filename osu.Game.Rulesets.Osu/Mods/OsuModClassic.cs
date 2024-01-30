@@ -47,6 +47,9 @@ namespace osu.Game.Rulesets.Osu.Mods
                     slider.ClassicSliderBehaviour = NoSliderHeadAccuracy.Value;
                     break;
             }
+
+            if (LegacyHitWindows.Value)
+                hitObject.HitWindows.SetLegacy(true); // will this do SetDifficulty automatically somewhere? if not, then SetLegacy should do it inside
         }
 
         public void ApplyToDrawableRuleset(DrawableRuleset<OsuHitObject> drawableRuleset)
